@@ -9,14 +9,7 @@ import { ScrollView,
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Create a new Deck',
-    headerStyle: {
-      backgroundColor: '#f4511e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
+    header: null,
   };
 
   render() {
