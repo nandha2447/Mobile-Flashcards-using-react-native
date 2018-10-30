@@ -7,7 +7,7 @@ import { ScrollView,
        } from 'react-native';
 //import { ExpoLinksView } from '@expo/samples';
 
-export default class LinksScreen extends React.Component {
+export default class CreateNewDeckScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
