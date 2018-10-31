@@ -3,7 +3,7 @@ import { ScrollView,
          StyleSheet, 
          TouchableOpacity,
          Text,
-         TextInput
+         TextInput,
        } from 'react-native';
 //import { ExpoLinksView } from '@expo/samples';
 
