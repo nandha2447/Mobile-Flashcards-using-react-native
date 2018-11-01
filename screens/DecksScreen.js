@@ -13,7 +13,7 @@ export default class DecksScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>HomeScreen</Text>
+        <Text>This is HomeScreen</Text>
       </View>
     );
   }
