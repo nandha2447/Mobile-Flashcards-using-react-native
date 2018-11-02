@@ -32,9 +32,17 @@ export function getDeck(id){
 }
 
 export function saveDeckTitle(title){
+    flashCardObject = {...flashCardObject, [title] : {title: `${title}`}}
     return flashCardObject;
 }
 
 export function addCardToDeck(title,card){
+    /* const {question, answer} = card;
+    flashCardObject = {
+        ...flashCardObject,
+        [title]: {...flashCardObject[title],
+                [questions]: [question,answer]
+        },
+    } */
     return flashCardObject;
 }
