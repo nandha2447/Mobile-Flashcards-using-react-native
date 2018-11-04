@@ -4,22 +4,30 @@ import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navig
 
 import CreateNewDeckScreen from '../screens/CreateNewDeckScreen';
 import DecksScreen from '../screens/DecksScreen';
+import IndividualDeckScreen from '../screens/IndividualDeckScreen'
 //import SettingsScreen from '../screens/SettingsScreen';
 
 const CreateNewDeckStack = createStackNavigator({
-  Home: CreateNewDeckScreen,
+  CreateNewDeckScreen: {
+    screen: CreateNewDeckScreen, 
+  }
 });
 
 CreateNewDeckStack.navigationOptions = {
-  tabBarLabel: 'Decks',
+  tabBarLabel: 'New Deck',
 };
 
 const DecksStack = createStackNavigator({
-  Links: DecksScreen,
+  DecksScreen: {
+    screen: DecksScreen,
+  },
+  IndividualDeckScreen: {
+    screen:  IndividualDeckScreen
+  }
 });
 
 DecksStack.navigationOptions = {
-  tabBarLabel: 'New Deck',
+  tabBarLabel: 'Decks',
 };
 
 export default createMaterialTopTabNavigator({

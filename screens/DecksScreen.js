@@ -2,6 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {getDecks, getDeck, saveDeckTitle} from '../utils/helpers.js';
@@ -23,10 +24,12 @@ export default class DecksScreen extends React.Component {
     return cards;
   }
   render() {
-    const obj = getDecks();
     return (
       <View style={styles.container}>
         {this.getCards()}
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('IndividualDeckScreen')}}>
+          <Text>Click to go to IndividualDeckScreen</Text>
+        </TouchableOpacity>
       </View>
     );
   }
