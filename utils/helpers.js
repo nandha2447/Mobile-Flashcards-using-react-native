@@ -46,5 +46,10 @@ export function saveDeckTitle(title){
 }
 
 export function addCardToDeck(title,card){
-    return flashCardObject;
+  const {question, answer} = card;
+  Object.values(flashCardObject).filter(stack => stack.title === title)[0].questions.push(
+    {question: question,
+    answer: answer
+  })
+  return flashCardObject;
 }
