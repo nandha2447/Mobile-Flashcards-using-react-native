@@ -5,6 +5,7 @@ import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navig
 import CreateNewDeckScreen from '../screens/CreateNewDeckScreen';
 import DecksScreen from '../screens/DecksScreen';
 import IndividualDeckScreen from '../screens/IndividualDeckScreen'
+import AddCardScreen from '../screens/AddCardScreen'
 //import SettingsScreen from '../screens/SettingsScreen';
 
 const CreateNewDeckStack = createStackNavigator({
@@ -23,6 +24,9 @@ const DecksStack = createStackNavigator({
   },
   IndividualDeckScreen: {
     screen:  IndividualDeckScreen
+  },
+  AddCardScreen: {
+    screen: AddCardScreen
   }
 });
 
