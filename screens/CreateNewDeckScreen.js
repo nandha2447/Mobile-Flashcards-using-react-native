@@ -12,11 +12,19 @@ export default class CreateNewDeckScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
+  state = {
+    newDeckTitle: ''
+  }
+  newDeckTitleChangedHandler = (val) => {
+    this.setState({
+      newDeckTitle: val
+    })
+  }
   createNewDeckHandler = () => {
-    console.log(JSON.stringify(getDecks()));
-    saveDeckTitle('Nandha');
-    console.log(JSON.stringify(getDecks()));
+    saveDeckTitle(this.state.newDeckTitle);
+    this.setState({
+      newDeckTitle: ''
+    })
     this.props.navigation.navigate('DecksScreen', {added: true})
   }
   render() {
@@ -26,6 +34,8 @@ export default class CreateNewDeckScreen extends React.Component {
            * content, we just wanted to provide you with some helpful links */}
         <Text>What's the title of your new deck?</Text>
         <TextInput 
+          value={this.state.newDeckTitle}
+          onChangeText={this.newDeckTitleChangedHandler}
           placeholder="New title of the deck" 
         />
         <TouchableOpacity onPress={this.createNewDeckHandler}>
