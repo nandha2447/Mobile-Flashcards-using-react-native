@@ -41,7 +41,7 @@ export function getDeck(id){
 }
 
 export function saveDeckTitle(title){
-    flashCardObject = {...flashCardObject, [title] : {title: `${title}`}}
+    flashCardObject = {...flashCardObject, [title] : {title: `${title}`, questions: []}}
     return flashCardObject;
 }
 

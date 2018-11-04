@@ -13,7 +13,6 @@ export default class DecksScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
   getCards = () => {
     const plainObj = getDecks();
     const obj = Object.values(getDecks());

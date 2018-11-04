@@ -6,6 +6,7 @@ import { ScrollView,
          TextInput,
        } from 'react-native';
 //import { ExpoLinksView } from '@expo/samples';
+import {saveDeckTitle,getDecks} from '../utils/helpers'
 
 export default class CreateNewDeckScreen extends React.Component {
   static navigationOptions = {
@@ -13,6 +14,9 @@ export default class CreateNewDeckScreen extends React.Component {
   };
 
   createNewDeckHandler = () => {
+    console.log(JSON.stringify(getDecks()));
+    saveDeckTitle('Nandha');
+    console.log(JSON.stringify(getDecks()));
     this.props.navigation.navigate('DecksScreen')
   }
   render() {
