@@ -20,6 +20,15 @@ const flashCardObject = {
           answer: 'The combination of a function and the lexical environment within which that function was declared.'
         }
       ]
+    },
+    HTML5: {
+      title: 'HTML5',
+      questions: [
+        {
+          question: 'What are the new tags introduced in HTML5?',
+          answer: '<section><article><aside><header><footer>'
+        }
+      ]
     }
   }
 

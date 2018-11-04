@@ -5,19 +5,28 @@ import {
   View,
 } from 'react-native';
 import {getDecks, getDeck, saveDeckTitle} from '../utils/helpers.js';
+import DeckCard from '../components/DeckCard'
+
 
 export default class DecksScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  getCards = () => {
+    const plainObj = getDecks();
+    const obj = Object.values(getDecks());
+    const cards = obj.map(card => <View key={card.title}>
+        <DeckCard title={card.title} length={plainObj[card.title].questions.length}></DeckCard>
+    </View>)
+    
+    return cards;
+  }
   render() {
-    console.log('object' + getDecks());
+    const obj = getDecks();
     return (
       <View style={styles.container}>
-        <Text>Checking getDecks() method    {getDecks().JavaScript.title}</Text>
-        <Text>Checking getDeck(id) method  {getDeck('React').title}</Text>
-        <Text>Checking saveDeckTitle(title) method {JSON.stringify(saveDeckTitle('HTML5'))}</Text>
+        {this.getCards()}
       </View>
     );
   }
