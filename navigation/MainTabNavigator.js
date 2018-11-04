@@ -6,6 +6,7 @@ import CreateNewDeckScreen from '../screens/CreateNewDeckScreen';
 import DecksScreen from '../screens/DecksScreen';
 import IndividualDeckScreen from '../screens/IndividualDeckScreen'
 import AddCardScreen from '../screens/AddCardScreen'
+import QuizFrontScreen from '../screens/QuizFrontScreen'
 //import SettingsScreen from '../screens/SettingsScreen';
 
 const CreateNewDeckStack = createStackNavigator({
@@ -27,6 +28,9 @@ const DecksStack = createStackNavigator({
   },
   AddCardScreen: {
     screen: AddCardScreen
+  },
+  QuizFrontScreen: {
+    screen: QuizFrontScreen
   }
 });
 

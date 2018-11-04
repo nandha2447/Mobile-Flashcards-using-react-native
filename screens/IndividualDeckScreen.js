@@ -21,7 +21,7 @@ class IndividualDeckScreen extends React.Component{
                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddCardScreen')}}>
                     <Text>Add Card</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('QuizFrontScreen')}}>
                     <Text>Start Quiz</Text>
                 </TouchableOpacity>
             </View>
