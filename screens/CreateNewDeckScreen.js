@@ -12,6 +12,9 @@ export default class CreateNewDeckScreen extends React.Component {
     header: null,
   };
 
+  createNewDeckHandler = () => {
+    this.props.navigation.navigate('DecksScreen')
+  }
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -21,7 +24,7 @@ export default class CreateNewDeckScreen extends React.Component {
         <TextInput 
           placeholder="New title of the deck" 
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.createNewDeckHandler}>
               <Text>Submit</Text>
         </TouchableOpacity>
       </ScrollView>
