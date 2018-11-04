@@ -17,7 +17,7 @@ export default class CreateNewDeckScreen extends React.Component {
     console.log(JSON.stringify(getDecks()));
     saveDeckTitle('Nandha');
     console.log(JSON.stringify(getDecks()));
-    this.props.navigation.navigate('DecksScreen')
+    this.props.navigation.navigate('DecksScreen', {added: true})
   }
   render() {
     return (
