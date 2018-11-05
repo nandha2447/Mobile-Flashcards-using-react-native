@@ -14,6 +14,10 @@ class IndividualDeckScreen extends React.Component{
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');
         const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
+        {this.props.navigation.getParam('isCardAdded') === true && this.props.navigation.getParam('onReloadDecksScreen')();}
+            // console.log(this.state.isCardAdded + 'isCardAdded')
+            // console.log(this.props.navigation.getParam('isCardAdded'))
+        
         return (
             <View>
                 <Text>Individual deck screen</Text>
