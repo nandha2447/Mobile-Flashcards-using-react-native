@@ -14,7 +14,8 @@ import {
           answer: ''
       }
       handleSubmit = () => {
-        const newObject = addCardToDeck('React',{question: 'Stupid', answer: 'Very Stupid'})
+        const passedDownTitle = this.props.navigation.getParam('passedDownTitle');
+        const newObject = addCardToDeck(passedDownTitle,{question: this.state.question, answer: this.state.answer})
         console.log(newObject);
         this.props.navigation.navigate('IndividualDeckScreen',{isCardAdded: true})
       }
