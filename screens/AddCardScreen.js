@@ -10,22 +10,35 @@ import {
 
   export default class AddCardScreen extends React.Component{
       state={
-          isCardAdded: false
+          question: '',
+          answer: ''
       }
       handleSubmit = () => {
         const newObject = addCardToDeck('React',{question: 'Stupid', answer: 'Very Stupid'})
         console.log(newObject);
+        this.props.navigation.navigate('IndividualDeckScreen',{isCardAdded: true})
+      }
+      changedQuestionHandler = (question) => {
         this.setState({
-            isCardAdded: true
+            question: question
+        })
+      }
+      changedAnswerHandler = (answer) => {
+        this.setState({
+            answer: answer
         })
       }
       render(){
           return (
               <View>
                   <TextInput 
+                        value={this.state.question}
+                        onPress={this.changedQuestionHandler}
                         placeholder="Question" 
                   />
                   <TextInput 
+                        value={this.state.answer}
+                        onPress={this.changedAnswerHandler}
                         placeholder="Answer" 
                   />
                   <TouchableOpacity onPress={this.handleSubmit}>

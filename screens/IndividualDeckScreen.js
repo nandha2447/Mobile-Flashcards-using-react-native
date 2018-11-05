@@ -8,6 +8,9 @@ import {
 import {getDecks} from '../utils/helpers'
 
 class IndividualDeckScreen extends React.Component{
+    state = {
+        isCardAdded: this.props.navigation.getParam('isCardAdded','false')
+    }
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');
         const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
