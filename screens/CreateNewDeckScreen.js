@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, 
+import { View, 
          StyleSheet, 
          TouchableOpacity,
          Text,
@@ -29,7 +29,7 @@ export default class CreateNewDeckScreen extends React.Component {
   }
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         {/* Go ahead and delete ExpoLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */}
         <Text>What's the title of your new deck?</Text>
@@ -41,7 +41,7 @@ export default class CreateNewDeckScreen extends React.Component {
         <TouchableOpacity onPress={this.createNewDeckHandler}>
               <Text>Submit</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -51,5 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   },
 });

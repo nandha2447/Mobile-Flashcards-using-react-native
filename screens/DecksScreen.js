@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {getDecks, getDeck, saveDeckTitle} from '../utils/helpers.js';
 import DeckCard from '../components/DeckCard'
+import { black } from 'ansi-colors';
 
 
 export default class DecksScreen extends React.Component {
@@ -29,7 +30,7 @@ export default class DecksScreen extends React.Component {
     const plainObj = getDecks();
     const obj = Object.values(getDecks());
     const cards = obj.map(card => 
-    <TouchableOpacity 
+    <TouchableOpacity style={styles.deckContainer}
         onPress={()=>{this.props.navigation.navigate('IndividualDeckScreen',{title: card.title, onReloadDecksScreen: this.onReloadDecksScreen }) }} 
         key={card.title}
     >
@@ -51,5 +52,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  deckContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#d6d7da'
   }
 });
