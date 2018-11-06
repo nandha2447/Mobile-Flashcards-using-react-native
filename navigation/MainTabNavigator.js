@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import CreateNewDeckScreen from '../screens/CreateNewDeckScreen';
 import DecksScreen from '../screens/DecksScreen';
@@ -38,7 +38,7 @@ DecksStack.navigationOptions = {
   tabBarLabel: 'Decks',
 };
 
-export default createMaterialTopTabNavigator({
+export default createBottomTabNavigator({
   DecksStack,
   CreateNewDeckStack,
 });
