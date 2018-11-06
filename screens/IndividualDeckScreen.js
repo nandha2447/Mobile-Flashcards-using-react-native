@@ -15,8 +15,12 @@ class IndividualDeckScreen extends React.Component{
     onStartQuizHandler = () => {
         const passedDownTitle = this.props.navigation.getParam('title','Category');
         const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
-        obj[0].questions.length !== 0 ? 
-                    this.props.navigation.navigate('QuizFrontScreen', {passedDownTitle: passedDownTitle}) : this.setState({ isZero : true})
+        obj[0].questions.length !== 0 
+                ? this.props.navigation.navigate('QuizFrontScreen', {passedDownTitle: passedDownTitle, isCardAdded: this.state.isCardAdded}) 
+                : this.setState({ isZero : true})
+        this.setState({
+            isCardAdded: false
+        })
     }
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');
@@ -44,9 +48,6 @@ class IndividualDeckScreen extends React.Component{
         return(
             <View>
                 <Text>You don't have any cards to quiz yourself.</Text>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddCardScreen', {passedDownTitle: passedDownTitle})}}>
-                        <Text>Add Card</Text>
-                    </TouchableOpacity>
             </View>
         )
     }

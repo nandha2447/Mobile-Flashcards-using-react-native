@@ -45,7 +45,6 @@ import {
                   <TouchableOpacity onPress={this.handleSubmit}>
                      <Text>Submit</Text>
                   </TouchableOpacity>
-                  {this.state.isCardAdded && <Text>Card is added</Text>}
               </View>
           )
       }

@@ -11,7 +11,8 @@ export default class QuizFrontScreen extends React.Component{
     state = {
         isQuestion: true,
         questions: [],
-        questionIndex: 0
+        questionIndex: 0,
+        isCardAdded: this.props.navigation.getParam('isCardAdded','false')
     }
     componentWillMount(){
         const passedDownTitle = this.props.navigation.getParam('passedDownTitle');
