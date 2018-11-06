@@ -34,12 +34,12 @@ import {
               <View>
                   <TextInput 
                         value={this.state.question}
-                        onPress={this.changedQuestionHandler}
+                        onChangeText={this.changedQuestionHandler}
                         placeholder="Question" 
                   />
                   <TextInput 
                         value={this.state.answer}
-                        onPress={this.changedAnswerHandler}
+                        onChangeText={this.changedAnswerHandler}
                         placeholder="Answer" 
                   />
                   <TouchableOpacity onPress={this.handleSubmit}>
