@@ -9,7 +9,14 @@ import {getDecks} from '../utils/helpers'
 
 class IndividualDeckScreen extends React.Component{
     state = {
-        isCardAdded: this.props.navigation.getParam('isCardAdded','false')
+        isCardAdded: this.props.navigation.getParam('isCardAdded','false'),
+        isZero: false
+    }
+    onStartQuizHandler = () => {
+        const passedDownTitle = this.props.navigation.getParam('title','Category');
+        const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
+        obj[0].questions.length !== 0 ? 
+                    this.props.navigation.navigate('QuizFrontScreen', {passedDownTitle: passedDownTitle}) : this.setState({ isZero : true})
     }
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');
@@ -17,20 +24,29 @@ class IndividualDeckScreen extends React.Component{
         {this.props.navigation.getParam('isCardAdded') === true && this.props.navigation.getParam('onReloadDecksScreen')();}
             // console.log(this.state.isCardAdded + 'isCardAdded')
             // console.log(this.props.navigation.getParam('isCardAdded'))
-        
-        return (
+        if(!this.state.isZero){
+            return (
+                <View>
+                    <Text>Individual deck screen</Text>
+                    <Text>{passedDownTitle}</Text>
+                    <Text>{
+                        obj[0].questions.length
+                    }</Text>
+                    <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddCardScreen', {passedDownTitle: passedDownTitle})}}>
+                        <Text>Add Card</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.onStartQuizHandler}>
+                        <Text>Start Quiz</Text>
+                    </TouchableOpacity>
+                </View>
+            )
+        }
+        return(
             <View>
-                <Text>Individual deck screen</Text>
-                <Text>{passedDownTitle}</Text>
-                <Text>{
-                    obj[0].questions.length
-                }</Text>
+                <Text>You don't have any cards to quiz yourself.</Text>
                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddCardScreen', {passedDownTitle: passedDownTitle})}}>
-                    <Text>Add Card</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('QuizFrontScreen')}}>
-                    <Text>Start Quiz</Text>
-                </TouchableOpacity>
+                        <Text>Add Card</Text>
+                    </TouchableOpacity>
             </View>
         )
     }
