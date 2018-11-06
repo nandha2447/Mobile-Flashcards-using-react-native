@@ -36,10 +36,16 @@ export default class QuizFrontScreen extends React.Component{
                     <TouchableOpacity onPress={()=>{this.setState({isQuestion: !isQuestion})}}>
                         <Text>See {this.state.isQuestion ? 'Answer' : 'Question'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{this.setState({questionIndex: questionIndex + 1})}}>
+                    <TouchableOpacity onPress={()=>{this.setState({
+                        questionIndex: questionIndex + 1,
+                        isQuestion: true
+                    })}}>
                         <Text>Correct</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{this.setState({questionIndex: questionIndex + 1})}}>
+                    <TouchableOpacity onPress={()=>{this.setState({
+                        questionIndex: questionIndex + 1,
+                        isQuestion: true
+                    })}}>
                         <Text>Incorrect</Text>
                     </TouchableOpacity>
                 </View>
