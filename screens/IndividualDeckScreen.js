@@ -5,7 +5,7 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
-import {getDecks} from '../utils/helpers'
+import {getDecks,clearLocalNotification,setLocalNotification} from '../utils/helpers'
 
 class IndividualDeckScreen extends React.Component{
     
@@ -22,6 +22,8 @@ class IndividualDeckScreen extends React.Component{
         this.setState({
             isCardAdded: false
         })
+        clearLocalNotification().then(setLocalNotification)
+
     }
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');

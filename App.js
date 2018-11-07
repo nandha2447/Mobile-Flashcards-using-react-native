@@ -1,13 +1,16 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,AsyncStorage} from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import {setLocalNotification} from './utils/helpers.js'
 
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
-
+  componentDidMount(){
+    setLocalNotification()
+  }
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
