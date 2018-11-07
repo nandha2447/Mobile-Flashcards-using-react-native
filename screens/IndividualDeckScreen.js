@@ -8,6 +8,7 @@ import {
 import {getDecks} from '../utils/helpers'
 
 class IndividualDeckScreen extends React.Component{
+    
     state = {
         isCardAdded: this.props.navigation.getParam('isCardAdded','false'),
         isZero: false
@@ -31,11 +32,10 @@ class IndividualDeckScreen extends React.Component{
         if(!this.state.isZero){
             return (
                 <View>
-                    <Text>Individual deck screen</Text>
                     <Text>{passedDownTitle}</Text>
                     <Text>{
                         obj[0].questions.length
-                    }</Text>
+                    } cards</Text>
                     <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddCardScreen', {passedDownTitle: passedDownTitle})}}>
                         <Text>Add Card</Text>
                     </TouchableOpacity>
