@@ -54,6 +54,12 @@ export default class QuizFrontScreen extends React.Component{
         return (
             <View>
                 <Text>There are no more cards left in this deck</Text>
+                <TouchableOpacity onPress={()=>{this.setState({
+                        questionIndex: 0,
+                        isQuestion: true
+                    })}}>
+                        <Text>Restart Quiz</Text>
+                    </TouchableOpacity>
             </View>
         )
     }
