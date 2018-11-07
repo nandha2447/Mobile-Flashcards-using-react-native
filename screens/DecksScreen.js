@@ -31,7 +31,7 @@ export default class DecksScreen extends React.Component {
     const obj = Object.values(getDecks());
     const cards = obj.map(card => 
     <TouchableOpacity style={styles.deckContainer}
-        onPress={()=>{this.props.navigation.navigate('IndividualDeckScreen',{title: card.title, onReloadDecksScreen: this.onReloadDecksScreen }) }} 
+        onPress={()=>{this.props.navigation.navigate('IndividualDeckScreen',{title: card.title, onReloadDecksScreen: this.onReloadDecksScreen, isFromDecks: true }) }} 
         key={card.title}
     >
         <DeckCard title={card.title} length={plainObj[card.title].questions.length}></DeckCard>

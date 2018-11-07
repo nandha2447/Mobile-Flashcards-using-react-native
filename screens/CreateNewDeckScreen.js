@@ -25,7 +25,7 @@ export default class CreateNewDeckScreen extends React.Component {
     this.setState({
       newDeckTitle: ''
     })
-    this.props.navigation.navigate('DecksScreen', {added: true})
+    this.props.navigation.navigate('IndividualDeckScreen', {added: true, title: this.state.newDeckTitle, isDeckAdded: true})
   }
   render() {
     return (

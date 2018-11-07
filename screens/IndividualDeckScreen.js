@@ -10,8 +10,10 @@ import {getDecks,clearLocalNotification,setLocalNotification} from '../utils/hel
 class IndividualDeckScreen extends React.Component{
     
     state = {
+        isDeckAdded: this.props.navigation.getParam('isDeckAdded','false'),
         isCardAdded: this.props.navigation.getParam('isCardAdded','false'),
-        isZero: false
+        isZero: false,
+        isFromDecks: this.props.navigation.getParam('isCardAdded','false')
     }
     onStartQuizHandler = () => {
         const passedDownTitle = this.props.navigation.getParam('title','Category');
@@ -28,13 +30,19 @@ class IndividualDeckScreen extends React.Component{
     render(){
         const passedDownTitle = this.props.navigation.getParam('title','Category');
         const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
-        {this.props.navigation.getParam('isCardAdded') === true && this.props.navigation.getParam('onReloadDecksScreen')();}
+        {this.props.navigation.getParam('isFromDecks') === true && this.props.navigation.getParam('onReloadDecksScreen')();}
             // console.log(this.state.isCardAdded + 'isCardAdded')
             // console.log(this.props.navigation.getParam('isCardAdded'))
         if(!this.state.isZero){
             return (
                 <View>
                     <Text>{passedDownTitle}</Text>
+                    <Text>
+                        {this.state.isCardAdded} isCardAdded value
+                    </Text>
+                    <Text>
+                        {this.state.isDeckAdded} isDeckAdded value
+                    </Text>
                     <Text>{
                         obj[0].questions.length
                     } cards</Text>
