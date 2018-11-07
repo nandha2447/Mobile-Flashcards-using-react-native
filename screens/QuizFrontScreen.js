@@ -12,7 +12,8 @@ export default class QuizFrontScreen extends React.Component{
         isQuestion: true,
         questions: [],
         questionIndex: 0,
-        isCardAdded: this.props.navigation.getParam('isCardAdded','false')
+        isCardAdded: this.props.navigation.getParam('isCardAdded','false'),
+        numberOfQuestionsCorrect: 0
     }
     componentWillMount(){
         const passedDownTitle = this.props.navigation.getParam('passedDownTitle');
@@ -38,7 +39,8 @@ export default class QuizFrontScreen extends React.Component{
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{this.setState({
                         questionIndex: questionIndex + 1,
-                        isQuestion: true
+                        isQuestion: true,
+                        numberOfQuestionsCorrect: this.state.numberOfQuestionsCorrect + 1
                     })}}>
                         <Text>Correct</Text>
                     </TouchableOpacity>
@@ -53,13 +55,23 @@ export default class QuizFrontScreen extends React.Component{
         }
         return (
             <View>
+                <Text>You have scored {(this.state.numberOfQuestionsCorrect / lengthOfCards) * 100 }% questions correct</Text>
                 <Text>There are no more cards left in this deck</Text>
                 <TouchableOpacity onPress={()=>{this.setState({
                         questionIndex: 0,
-                        isQuestion: true
+                        isQuestion: true,
+                        numberOfQuestionsCorrect: 0
                     })}}>
                         <Text>Restart Quiz</Text>
-                    </TouchableOpacity>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>{
+                    this.setState({
+                        numberOfQuestionsCorrect: 0
+                    })
+                    this.props.navigation.navigate('IndividualDeckScreen')}
+                }>
+                        <Text>Back to Deck</Text>
+                </TouchableOpacity>
             </View>
         )
     }
