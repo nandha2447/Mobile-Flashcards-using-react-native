@@ -8,6 +8,7 @@ import {
 import {getDecks, getDeck, saveDeckTitle} from '../utils/helpers.js';
 import DeckCard from '../components/DeckCard'
 import { black } from 'ansi-colors';
+import Events from '../utils/events'
 
 
 export default class DecksScreen extends React.Component {
@@ -18,7 +19,17 @@ export default class DecksScreen extends React.Component {
   state= {
     added: this.props.navigation.getParam('added',false)
   }
-
+  refresh = () => {
+    this.setState({
+      added: true
+    })
+  }
+  componentDidMount(){
+    this.refreshEvent = Events.subscribe('RefreshList', () => this.refresh());
+  }
+  componentWillUnmount(){
+    this.refreshEvent.remove();
+  }
   onReloadDecksScreen = () => {
     this.setState({
       added: true

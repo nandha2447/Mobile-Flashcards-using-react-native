@@ -6,6 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import {getDecks,clearLocalNotification,setLocalNotification} from '../utils/helpers'
+import Events from '../utils/events'
 
 class IndividualDeckScreen extends React.Component{
     
@@ -31,18 +32,13 @@ class IndividualDeckScreen extends React.Component{
         const passedDownTitle = this.props.navigation.getParam('title','Category');
         const obj = Object.values(getDecks()).filter(card => card.title === passedDownTitle); 
         {this.props.navigation.getParam('isFromDecks') === true && this.props.navigation.getParam('onReloadDecksScreen')();}
+        {this.state.isDeckAdded && Events.publish('RefreshList')}
             // console.log(this.state.isCardAdded + 'isCardAdded')
             // console.log(this.props.navigation.getParam('isCardAdded'))
         if(!this.state.isZero){
             return (
                 <View>
                     <Text>{passedDownTitle}</Text>
-                    <Text>
-                        {this.state.isCardAdded} isCardAdded value
-                    </Text>
-                    <Text>
-                        {this.state.isDeckAdded} isDeckAdded value
-                    </Text>
                     <Text>{
                         obj[0].questions.length
                     } cards</Text>
